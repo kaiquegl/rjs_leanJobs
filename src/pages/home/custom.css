@@ -1,0 +1,57 @@
+/* Parsley validation  */
+.parsley-errors-list {
+  display: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.parsley-errors-list.filled {
+  display: block;
+}
+
+.parsley-errors-list>li {
+  font-size: 12px;
+  list-style: none;
+  color: #f36e42;
+}
+
+.parsley-error {
+  border-color: #f36e42 !important;
+}
+
+.parsley-custom-error-message {
+  color: #f36e42;
+}
+
+/* checkbox + radio */
+.parsley-error.custom-checkbox>label:before,
+.parsley-error.custom-radio>label:before,
+.parsley-error.custom-checkbox:hover>label:before,
+.parsley-error.custom-radio:hover>label:before {
+  border: 1px solid #f36e42;
+}
+
+.parsley-error.custom-checkbox>input[type="checkbox"]:checked+label:before,
+.parsley-error.custom-radio>input[type="checkbox"]:checked+label:before {
+  border-color: #f36e42;
+  background-color: #f36e42;
+}
+
+.parsley-error.custom-checkbox>label,
+.parsley-error.custom-radio>label {
+  color: #f36e42;
+}
+
+/*
+  CUSTOM
+*/
+
+@media (max-width: 480px) {
+  .navbar-brand>img {
+    width: 200px;
+  }
+
+  .btn-default {
+    font-size: 11px;
+  }
+}
