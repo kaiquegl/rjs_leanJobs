@@ -1,0 +1,6 @@
+
+src/assets/**
+src/index.html
+src/index.js
+*.scss
+*.md
