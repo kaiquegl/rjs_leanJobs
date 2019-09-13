@@ -12,6 +12,7 @@ import Contact from '../../components/leanwork/contact/Contact';
 
 import './styles.css';
 import './custom.css';
+import Jobs from '../../components/leanwork/jobs/Jobs';
 
 const InstitucionalPage = () => {
 
@@ -20,6 +21,8 @@ const InstitucionalPage = () => {
   const solutionsRef = useRef(null);
   const leanCommRef = useRef(null);
   const clientsRef = useRef(null);
+  const contactRef = useRef(null);
+  const jobsRef = useRef(null);
 
   const goTo = (ref) => {
 
@@ -58,10 +61,11 @@ const InstitucionalPage = () => {
             <ul className="nav navbar-nav navbar-right">
               <li>Home</li>
               <li onClick={() => goTo(aboutUsRef)} role="button" tabIndex="-1">Quem Somos</li>
-              <li>Serviços</li>
-              <li>Clientes</li>
-              <li className="active">Orçamento</li>
-              <li>Contato</li>
+              <li onClick={() => goTo(servicesRef)} role="button" tabIndex="-1">Serviços</li>
+              <li onClick={() => goTo(clientsRef)} role="button" tabIndex="-1">Clientes</li>
+              <li onClick={() => goTo(contactRef)} role="button" tabIndex="-1" className="active">Orçamento</li>
+              <li onClick={() => goTo(contactRef)} role="button" tabIndex="-1">Contato</li>
+              <li onClick={() => goTo(jobsRef)} role="button" tabIndex="-1">Trabalhe Conosco</li>
             </ul>
           </div>
         </div>
@@ -194,8 +198,11 @@ const InstitucionalPage = () => {
           </div>
         </div>
       </section>
-      <section id="contato" className="section section-contact">
+      <section ref={contactRef} className="section section-contact">
         <Contact />
+      </section>
+      <section ref={jobsRef} className="section section-jobs">
+        <Jobs />
       </section>
       <footer className="footer footer-default footer-sticky">
         <div className="container">

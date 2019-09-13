@@ -18,8 +18,8 @@ const Routes = () => {
 
   return (
     <Switch>
-      <Route exact path="/" component={props => <Institucional {...props} />} />
-      <Route path="/institucional" component={props => <Institucional {...props} />} />
+      <Route exact path="/" component={(props) => <Institucional {...props} />} />
+      <Route path="/institucional" component={(props) => <Institucional {...props} />} />
       {/* <Route exact path="/jobs" component={props => <LeanJobs {...props} />} /> */}
     </Switch>
   );
