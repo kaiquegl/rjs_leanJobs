@@ -1,6 +1,6 @@
 module.exports = {
   extends: "airbnb",
-  "rules": {
+  rules: {
     "strict": 0,
     "padded-blocks": [
       "error",

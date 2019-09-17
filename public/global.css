@@ -11607,7 +11607,6 @@ button.close {
   width: 100%;
   height: 100vh;
   position: relative;
-  background-image: url('../../assets/images/homeBanner.jpg') !important;
 }
 
 .swiper-container-autoheight,
@@ -14935,6 +14934,50 @@ h6 {
   }
 }
 
-.section-jobs {
-  background-color: #f2f2f2;
+.section-intro-jobs {
+  background-color: #f37043;
+  padding: 50px 0;
+  color: #fff;
+}
+
+.section-intro-jobs .sj-title {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 5px;
+  padding: 0;
+  color: #fff;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.section-intro-jobs .sj-subTitle {
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.45;
+  color: #0f4863;
+  font-size: 18px;
+}
+
+.section-intro-jobs .sj-button {
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  width: 160px;
+  height: 42px;
+  justify-content: center;
+  align-items: center;
+  transition: all .25s ease-out;
+  text-transform: uppercase;
+  color: #fff;
+  border: solid 2px #fff;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.section-intro-jobs .sj-button:hover {
+  background-color: #fff;
+  color: #f37043;
 }

@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import ArrowLeft from '@material-ui/icons/ArrowBack';
-import CloseIcon from '@material-ui/icons/Close';
+import LeanworkLogoGray from '../../assets/images/leanworkLogoGray.png';
+import JobsList from '../../components/leanJobs/jobsList/JobsList';
+import JobApplyInfo from '../../components/leanJobs/jobApplyInfo/JobApplyInfo';
+import JobApplyForm from '../../components/leanJobs/jobApplyForm/JobApplyForm';
 
 import './styles.scss';
 
-const Jobs = () => {
+const LeanJobs = () => {
 
   const [jobs, setJobs] = useState(undefined);
   const [jobSelected, setJobSelected] = useState(undefined);
@@ -107,84 +111,54 @@ const Jobs = () => {
   }, []);
 
   return (
-    <div className="container leanJobs">
-      <div className="jobsListBox">
-        <h3 className="jobsListTitle">Vagas disponíveis:</h3>
-        <div className="jobsList">
-          {jobs && (
-            jobs.map((job) => (
-              <div
-                key={job.id}
-                className="jobImgBox"
-                onClick={() => setJobSelected(job)}
-                role="button"
-                tabIndex="-1"
-              >
-                <img src={job.img} className="img-responsive jobImg" alt={job.title} />
-              </div>
-            ))
-          )}
+    <section className="leanJobs">
+      <div className="leanJobsNavWrapper">
+        <div className="container">
+          <div className="leanJobsNavBox">
+            <Link to="/"><img src={LeanworkLogoGray} className="navIcon" alt="LeanWork logo" /></Link>
+            <ul>
+              <li><Link to="/">LeanWork</Link></li>
+              <li><Link to="/">LeanCommerce</Link></li>
+              <li className="active">LeanVagas</li>
+            </ul>
+          </div>
         </div>
       </div>
-      <div className="jobSelectedBox">
-        {!jobSelected && (
-          <p className="jobUnselected">
-            <ArrowLeft className="jobsUnselectedIcon" />
-            Selecione uma vaga!
-          </p>
-        )}
-        {jobSelected && (
-          <div className="jobSelectedInfo">
-            <h3 className="jobSelectedTitle">
-              {jobSelected.title} <CloseIcon className="jobSelectedCloseIcon" onClick={() => setJobSelected(undefined)} />
-            </h3>
-            <p className="jobSelectedBasicInfo">Cidade: <span>{jobSelected.city}</span></p>
-            <p className="jobSelectedBasicInfo">Regime: <span>{jobSelected.clt ? 'CLT' : 'PJ'}</span></p>
-            {jobSelected.description.activities.length > 0 && (
-              <ul>
-                <h4 className="jobSelectedInfoListTitle">Atividade:</h4>
-                {jobSelected.description.activities.map((activity) => (
-                  <li className="jobSelectedInfoListItem">{activity}</li>
-                ))}
-              </ul>
-            )}
-            {jobSelected.description.required.length > 0 && (
-              <ul>
-                <h4 className="jobSelectedInfoListTitle">Requisito:</h4>
-                {jobSelected.description.required.map((require) => (
-                  <li className="jobSelectedInfoListItem">{require}</li>
-                ))}
-              </ul>
-            )}
-            {jobSelected.description.desirable.length > 0 && (
-              <ul>
-                <h4 className="jobSelectedInfoListTitle">Desejável:</h4>
-                {jobSelected.description.desirable.map((desire) => (
-                  <li className="jobSelectedInfoListItem">{desire}</li>
-                ))}
-              </ul>
-            )}
-            {jobSelected.description.differentials.length > 0 && (
-              <ul>
-                <h4 className="jobSelectedInfoListTitle">Difirencial:</h4>
-                {jobSelected.description.differentials.map((differential) => (
-                  <li className="jobSelectedInfoListItem">{differential}</li>
-                ))}
-              </ul>
-            )}
-            <button
-              className="jobsSelectedApplyBtn"
-              type="button"
-              onClick={() => setApplyToJob(true)}
-            >
-              Candidatar-se
-            </button>
+      <div className="container ">
+        {jobs && (
+          <div className="leanJobsWrapper">
+            <JobsList
+              jobs={jobs}
+              selectJob={(job) => setJobSelected(job)}
+            />
+            <div className="jobSelectedBox">
+              {!jobSelected && (
+                <p className="jobUnselected">
+                  <ArrowLeft className="jobsUnselectedIcon" />
+                  Selecione uma vaga!
+                </p>
+              )}
+              {jobSelected && (
+                <>
+                  <JobApplyInfo
+                    jobSelected={jobSelected}
+                    applyToJob={applyToJob}
+                    setApplyToJob={() => setApplyToJob(true)}
+                  />
+                  <JobApplyForm
+                    jobSelected={jobSelected}
+                    applyToJob={applyToJob}
+                    setApplyToJob={() => setApplyToJob(false)}
+                  />
+                </>
+              )}
+            </div>
           </div>
         )}
       </div>
-    </div>
+    </section>
   );
 
 };
 
-export default Jobs;
+export default LeanJobs;

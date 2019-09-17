@@ -1,0 +1,297 @@
+.leanJobs {
+  min-height: 100vh;
+  background: url('../../assets/images/jobsBanner1.png');
+  background-size: cover;
+
+  .leanJobsNavWrapper {
+    background: #fff;
+
+    .leanJobsNavBox {
+      padding: 20px 15px;
+      display: flex;
+      justify-content: space-between;
+
+      ul {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        font-weight: 500;
+        text-transform: uppercase;
+
+        li.active {
+          color: #f37043;
+          padding: 10px;
+          text-decoration: none;
+          border: 2px solid #2079b5;
+        }
+
+        li>a {
+          color: #6d6d6d;
+          padding: 10px;
+          margin: 0 10px;
+          text-decoration: none;
+          transition: color .25s ease-out;
+
+          &:hover {
+            color: #f37043;
+          }
+        }
+      }
+    }
+  }
+
+  .leanJobsWrapper {
+    display: flex;
+
+    @media (max-width: 1199px) {
+      flex-wrap: wrap;
+    }
+
+    .jobsListBox {
+      display: flex;
+      flex-direction: column;
+      width: calc(60% - 20px);
+
+      @media (max-width: 1199px) {
+        min-width: 100%;
+      }
+
+      .jobsListTitle {
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #f37043;
+      }
+
+      .jobsList {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+        grid-gap: 1rem;
+
+        .jobImgBox {
+          cursor: pointer;
+
+          // .jobImg {
+          //   width: ;
+          // }
+        }
+      }
+    }
+
+    .jobSelectedBox {
+      margin-left: 20px;
+      border-radius: 5px;
+      max-width: calc(40% - 20px);
+      flex: 1 1 auto;
+      display: flex;
+      justify-content: flex-start;
+      background: #0f4863;
+      color: #f2f2f2;
+      font-weight: 400;
+      height: 100%;
+      margin-top: 56px;
+      min-height: 220px;
+      overflow: hidden;
+
+      @media (max-width: 1199px) {
+        min-width: 100%;
+        margin: 20px 0 0;
+      }
+
+      .jobUnselected {
+        font-size: 30px;
+        font-weight: 500;
+        font-style: italic;
+        margin: 0;
+        display: flex;
+        min-width: 100%;
+        padding: 20px;
+        justify-content: center;
+        align-items: center;
+
+        .jobsUnselectedIcon {
+          font-size: 44px;
+        }
+      }
+
+      .jobSelectedInfoBox {
+        display: flex;
+        min-width: 100%;
+        padding: 20px;
+        transition: transform 0.3s ease-in;
+
+        &.jsi-hidden {
+          transform: translateX(-100%);
+        }
+
+        .jobSelectedInfoIcon {
+          font-size: 40px;
+          color: #f2f2f2;
+          cursor: pointer;
+          margin: auto -20px auto 10px;
+        }
+
+        .jobSelectedInfo {
+
+          p {
+            margin: 0;
+          }
+
+          ul {
+            list-style: square;
+            margin: 0;
+          }
+
+          .jobSelectedTitle {
+            margin: 0 0 10px;
+            font-size: 20px;
+            color: #f37043;
+            font-weight: 700;
+            text-transform: uppercase;
+            display: flex;
+            justify-content: space-between;
+
+            .jobSelectedCloseIcon {
+              font-size: 24px;
+              cursor: pointer;
+              color: #ccc;
+              transition: color 0.2s ease-in-out;
+
+              &:hover {
+                color: #fff;
+              }
+            }
+          }
+
+          .jobSelectedBasicInfo {
+            letter-spacing: 0.74px;
+            line-height: 1.5;
+
+            span {
+              font-weight: 500;
+              letter-spacing: 0.90px;
+            }
+          }
+
+          .jobSelectedInfoListTitle {
+            margin: 15px 0 0;
+            letter-spacing: 1.04px;
+            color: #2abced;
+            font-size: 18px;
+          }
+
+          .jobSelectedInfoListItem {
+            letter-spacing: 0.74px;
+            margin-left: 20px;
+            line-height: 1.5;
+          }
+
+          .jobsSelectedApplyBtn {
+            height: 42px;
+            margin: 15px 0 0;
+            padding: 0 40px;
+            color: #f2f2f2;
+            background: #f37043;
+            text-transform: uppercase;
+            border: 0;
+            outline: none;
+            margin: 20px auto 0;
+            font-weight: 500;
+            font-size: 18px;
+            display: block;
+            transition: background 0.25s ease-out;
+
+            &:hover {
+              background: #ff8814;
+            }
+          }
+
+          .jobSelectedCopyText {
+            display: block;
+            margin: 5px 0;
+            text-align: center;
+            font-size: 12px;
+          }
+
+          .jobSelectedCopyBtn {
+            height: 32px;
+            margin: 15px 0 0;
+            padding: 0 40px;
+            color: #6d6d6d;
+            background: #f2f2f2;
+            text-transform: uppercase;
+            border: 0;
+            outline: none;
+            margin: 0 auto;
+            font-weight: 500;
+            font-size: 14px;
+            display: block;
+            transition: background 0.25s ease-out;
+
+            &:hover {
+              background: #fff;
+            }
+          }
+        }
+      }
+
+      .jobApplyBox {
+        min-width: 100%;
+        min-height: 100%;
+        transition: transform 0.3s ease-in;
+        display: flex;
+        padding: 20px;
+
+        &.jaf-visible {
+          transform: translateX(-100%);
+        }
+
+        .jobApplFormIcon {
+          font-size: 40px;
+          color: #f2f2f2;
+          cursor: pointer;
+          margin: auto 0px auto -20px;
+        }
+
+        .jobApplyForm {
+          flex: 1 1 auto;
+
+          label {
+            width: 100%;
+            margin: 0 0 15px;
+            font-weight: 500;
+
+            .form-control {
+              margin-top: 5px;
+
+              &:hover,
+              &:focus {
+                border: 1px solid #ff8814;
+              }
+
+              &.jaf {
+
+                &-tInput {
+                  min-height: 100px;
+                  resize: none;
+                }
+              }
+            }
+          }
+
+          .jobApplyBtn {
+            height: 42px;
+            outline: none;
+            border: 0;
+            padding: 0 40px;
+            text-transform: uppercase;
+            background: #f37043;
+            font-weight: 500;
+            margin: 0 0 0 auto;
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}

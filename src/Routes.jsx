@@ -9,10 +9,10 @@ const Institucional = Loadable({
   loading: AppLoader,
 });
 
-// const LeanJobs = Loadable({
-//   loader: () => import('./pages/leanJobs/LeanJobs'),
-//   loading: AppLoader,
-// });
+const LeanJobs = Loadable({
+  loader: () => import('./pages/leanJobs/LeanJobs'),
+  loading: AppLoader,
+});
 
 const Routes = () => {
 
@@ -20,7 +20,7 @@ const Routes = () => {
     <Switch>
       <Route exact path="/" component={(props) => <Institucional {...props} />} />
       <Route path="/institucional" component={(props) => <Institucional {...props} />} />
-      {/* <Route exact path="/jobs" component={props => <LeanJobs {...props} />} /> */}
+      <Route exact path="/jobs" component={props => <LeanJobs {...props} />} />
     </Switch>
   );
 
