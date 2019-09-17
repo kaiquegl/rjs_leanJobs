@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import ArrowLeft from '@material-ui/icons/ArrowBack';
+import CloseIcon from '@material-ui/icons/Close';
 
 import './styles.scss';
 
@@ -8,6 +9,7 @@ const Jobs = () => {
 
   const [jobs, setJobs] = useState(undefined);
   const [jobSelected, setJobSelected] = useState(undefined);
+  const [applyToJob, setApplyToJob] = useState(false);
 
   useEffect(() => {
 
@@ -133,17 +135,50 @@ const Jobs = () => {
         )}
         {jobSelected && (
           <div className="jobSelectedInfo">
-            <h3 className="jobSelectedTitle">{jobSelected.title}</h3>
+            <h3 className="jobSelectedTitle">
+              {jobSelected.title} <CloseIcon className="jobSelectedCloseIcon" onClick={() => setJobSelected(undefined)} />
+            </h3>
             <p className="jobSelectedBasicInfo">Cidade: <span>{jobSelected.city}</span></p>
             <p className="jobSelectedBasicInfo">Regime: <span>{jobSelected.clt ? 'CLT' : 'PJ'}</span></p>
             {jobSelected.description.activities.length > 0 && (
-              <>
-                <h4 className="jobSelectedInfoListTitle">Atividades:</h4>
+              <ul>
+                <h4 className="jobSelectedInfoListTitle">Atividade:</h4>
                 {jobSelected.description.activities.map((activity) => (
-                  <p className="jobSelectedInfoListItem">{activity}</p>
+                  <li className="jobSelectedInfoListItem">{activity}</li>
                 ))}
-              </>
+              </ul>
             )}
+            {jobSelected.description.required.length > 0 && (
+              <ul>
+                <h4 className="jobSelectedInfoListTitle">Requisito:</h4>
+                {jobSelected.description.required.map((require) => (
+                  <li className="jobSelectedInfoListItem">{require}</li>
+                ))}
+              </ul>
+            )}
+            {jobSelected.description.desirable.length > 0 && (
+              <ul>
+                <h4 className="jobSelectedInfoListTitle">Desejável:</h4>
+                {jobSelected.description.desirable.map((desire) => (
+                  <li className="jobSelectedInfoListItem">{desire}</li>
+                ))}
+              </ul>
+            )}
+            {jobSelected.description.differentials.length > 0 && (
+              <ul>
+                <h4 className="jobSelectedInfoListTitle">Difirencial:</h4>
+                {jobSelected.description.differentials.map((differential) => (
+                  <li className="jobSelectedInfoListItem">{differential}</li>
+                ))}
+              </ul>
+            )}
+            <button
+              className="jobsSelectedApplyBtn"
+              type="button"
+              onClick={() => setApplyToJob(true)}
+            >
+              Candidatar-se
+            </button>
           </div>
         )}
       </div>
