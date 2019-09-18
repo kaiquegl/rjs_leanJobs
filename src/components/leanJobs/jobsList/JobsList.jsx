@@ -20,7 +20,7 @@ const JobsList = (props) => {
             role="button"
             tabIndex="-1"
           >
-            <img src={job.img} className="img-responsive jobImg" alt={job.title} />
+            <img id={job.id + job.title} src={job.img} className="img-responsive jobImg" alt={job.title} />
           </div>
         ))}
       </div>

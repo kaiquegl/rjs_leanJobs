@@ -114,7 +114,7 @@
         }
       }
 
-      .jobSelectedInfoBox {
+      .jobSelectedInfoWrapper {
         display: flex;
         min-width: 100%;
         padding: 20px;
@@ -132,6 +132,9 @@
         }
 
         .jobSelectedInfo {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
 
           p {
             margin: 0;
@@ -186,7 +189,7 @@
             line-height: 1.5;
           }
 
-          .jobsSelectedApplyBtn {
+          .jobSelectedApplyBtn {
             height: 42px;
             margin: 15px 0 0;
             padding: 0 40px;
@@ -198,6 +201,7 @@
             margin: 20px auto 0;
             font-weight: 500;
             font-size: 18px;
+            width: 220px;
             display: block;
             transition: background 0.25s ease-out;
 
@@ -226,6 +230,7 @@
             font-weight: 500;
             font-size: 14px;
             display: block;
+            width: 220px;
             transition: background 0.25s ease-out;
 
             &:hover {
