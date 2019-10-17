@@ -20,7 +20,7 @@ const JobsList = (props) => {
             role="button"
             tabIndex="-1"
           >
-            <img id={job.id + job.title} src={job.img} className="img-responsive jobImg" alt={job.title} />
+            <img id={job.id} src={job.imagem} className="img-responsive jobImg" alt={job.titulo} />
           </div>
         ))}
       </div>
@@ -32,8 +32,8 @@ const JobsList = (props) => {
 JobsList.propTypes = {
   jobs: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
-    img: PropTypes.string,
-    title: PropTypes.string,
+    imagem: PropTypes.string,
+    titulo: PropTypes.string,
   })).isRequired,
   selectJob: PropTypes.func.isRequired,
 };

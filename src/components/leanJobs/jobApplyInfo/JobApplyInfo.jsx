@@ -32,41 +32,17 @@ const JobApplyInfo = (props) => {
     <div className={`jobSelectedInfoWrapper${applyToJob ? ' jsi-hidden' : ''}`}>
       <div className="jobSelectedInfo">
         <div className="jobSelectedInfoBox">
-          <h3 className="jobSelectedTitle"> {jobSelected.title} </h3>
-          <p className="jobSelectedBasicInfo">Cidade: <span>{jobSelected.city}</span></p>
-          <p className="jobSelectedBasicInfo">Regime: <span>{jobSelected.clt ? 'CLT' : 'PJ'}</span></p>
-          {jobSelected.description.activities.length > 0 && (
-            <ul>
-              <h4 className="jobSelectedInfoListTitle">Atividade:</h4>
-              {jobSelected.description.activities.map((activity, index) => (
+          <h3 className="jobSelectedTitle"> {jobSelected.titulo} </h3>
+          <p className="jobSelectedBasicInfo">Cidade: <span>{jobSelected.cidade}</span></p>
+          <p className="jobSelectedBasicInfo">Regime: <span>{jobSelected.modeloContratacao}{jobSelected.modeloTrabalho ? ` - ${jobSelected.modeloTrabalho}` : ''}</span></p>
+          {jobSelected.caracteristicas.map((caracteristicas, i) => (
+            <ul key={i}>
+              <h4 className="jobSelectedInfoListTitle">{caracteristicas.nome}:</h4>
+              {caracteristicas.itens.map((activity, index) => (
                 <li key={index} className="jobSelectedInfoListItem">{activity}</li>
               ))}
             </ul>
-          )}
-          {jobSelected.description.required.length > 0 && (
-            <ul>
-              <h4 className="jobSelectedInfoListTitle">Requisito:</h4>
-              {jobSelected.description.required.map((require, index) => (
-                <li key={index} className="jobSelectedInfoListItem">{require}</li>
-              ))}
-            </ul>
-          )}
-          {jobSelected.description.desirable.length > 0 && (
-            <ul>
-              <h4 className="jobSelectedInfoListTitle">Desejável:</h4>
-              {jobSelected.description.desirable.map((desire, index) => (
-                <li key={index} className="jobSelectedInfoListItem">{desire}</li>
-              ))}
-            </ul>
-          )}
-          {jobSelected.description.differentials.length > 0 && (
-            <ul>
-              <h4 className="jobSelectedInfoListTitle">Difirencial:</h4>
-              {jobSelected.description.differentials.map((differential, index) => (
-                <li key={index} className="jobSelectedInfoListItem">{differential}</li>
-              ))}
-            </ul>
-          )}
+          ))}
         </div>
         <div className="jobSelectedBtns">
           <button
@@ -78,7 +54,7 @@ const JobApplyInfo = (props) => {
           </button>
           <small className="jobSelectedCopyText">ou indique para um amigo</small>
           <CopyToClipboard
-            text={jobSelected.img}
+            text={jobSelected.imagem}
             onCopy={copiedCurrentImgUrl}
           >
             <button
@@ -98,16 +74,15 @@ const JobApplyInfo = (props) => {
 
 JobApplyInfo.propTypes = {
   jobSelected: PropTypes.shape({
-    title: PropTypes.string,
-    city: PropTypes.string,
-    clt: PropTypes.bool,
-    img: PropTypes.string,
-    description: PropTypes.shape({
-      activities: PropTypes.arrayOf(PropTypes.string),
-      required: PropTypes.arrayOf(PropTypes.string),
-      desirable: PropTypes.arrayOf(PropTypes.string),
-      differentials: PropTypes.arrayOf(PropTypes.string),
-    }),
+    titulo: PropTypes.string,
+    cidade: PropTypes.string,
+    modeloContratacao: PropTypes.string,
+    modeloTrabalho: PropTypes.string,
+    imagem: PropTypes.string,
+    caracteristicas: PropTypes.arrayOf(PropTypes.shape({
+      itens: PropTypes.arrayOf(PropTypes.string),
+      nome: PropTypes.string,
+    })),
   }).isRequired,
   applyToJob: PropTypes.bool.isRequired,
   setApplyToJob: PropTypes.func.isRequired,

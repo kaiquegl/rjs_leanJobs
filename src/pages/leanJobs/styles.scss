@@ -43,6 +43,7 @@
 
   .leanJobsWrapper {
     display: flex;
+    padding: 0 0 20px;
 
     @media (max-width: 1199px) {
       flex-wrap: wrap;
@@ -135,6 +136,7 @@
           display: flex;
           flex-direction: column;
           justify-content: space-between;
+          flex: 1 1 auto;
 
           p {
             margin: 0;
