@@ -11416,96 +11416,112 @@ button.close {
 }
 
 .icon-clock {
+  background-image: url('http://leanwork.com.br/content/images/sprite.png');
   background-position: -896px -626px;
   width: 22px;
   height: 22px
 }
 
 .icon-email {
+  background-image: url('http://leanwork.com.br/content/images/sprite.png');
   background-position: -1048px -598px;
   width: 22px;
   height: 17px
 }
 
 .icon-girl {
+  background-image: url('http://leanwork.com.br/content/images/sprite.png');
   background-position: -613px 0px;
   width: 553px;
   height: 588px
 }
 
 .icon-lean-devices {
+  background-image: url('http://leanwork.com.br/content/images/sprite.png');
   background-position: 0px 0px;
   width: 603px;
   height: 791px
 }
 
 .icon-leanfaq {
+  background-image: url('http://leanwork.com.br/content/images/sprite.png');
   background-position: -613px -662px;
   width: 36px;
   height: 42px
 }
 
 .icon-leanmanager {
+  background-image: url('http://leanwork.com.br/content/images/sprite.png');
   background-position: -659px -662px;
   width: 33px;
   height: 38px
 }
 
 .icon-leanquality {
+  background-image: url('http://leanwork.com.br/content/images/sprite.png');
   background-position: -613px -714px;
   width: 29px;
   height: 41px
 }
 
 .icon-leanwork {
+  background-image: url('http://leanwork.com.br/content/images/sprite.png');
   background-position: -613px -598px;
   width: 273px;
   height: 54px
 }
 
 .icon-phone {
+  background-image: url('http://leanwork.com.br/content/images/sprite.png');
   background-position: -1080px -598px;
   width: 17px;
   height: 17px
 }
 
 .icon-pin {
+  background-image: url('http://leanwork.com.br/content/images/sprite.png');
   background-position: -742px -662px;
   width: 16px;
   height: 22px
 }
 
 .icon-quote {
+  background-image: url('http://leanwork.com.br/content/images/sprite.png');
   background-position: -928px -626px;
   width: 20px;
   height: 20px
 }
 
 .icon-rawf {
+  background-image: url('http://leanwork.com.br/content/images/sprite.png');
   background-position: -896px -598px;
   width: 142px;
   height: 18px
 }
 
 .icon-remove {
+  background-image: url('http://leanwork.com.br/content/images/sprite.png');
   background-position: -958px -626px;
   width: 18px;
   height: 18px
 }
 
 .icon-right-arrow {
+  background-image: url('http://leanwork.com.br/content/images/sprite.png');
   background-position: -702px -662px;
   width: 30px;
   height: 30px
 }
 
 .icon-solucoes {
+  background-image: url('http://leanwork.com.br/content/images/sprite.png');
   background-position: 0px -801px;
   width: 580px;
   height: 801px
 }
 
 .icon {
+  background-image: url('http://leanwork.com.br/content/images/sprite.png');
   display: inline-block;
   vertical-align: middle;
   line-height: 1

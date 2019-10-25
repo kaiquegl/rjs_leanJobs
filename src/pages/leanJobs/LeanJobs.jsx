@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { document } from 'global';
 
 import ArrowLeft from '@material-ui/icons/ArrowBack';
 import LeanworkLogoGray from '../../assets/images/leanworkLogoGray.png';
@@ -21,11 +22,14 @@ const LeanJobs = () => {
 
     const fetchData = async () => {
 
-      const { data, error } = await axios.get('https://lean-processos-api.azurewebsites.net/api/vagas', {
-        headers: {
-          Authorization: 'Basic bGVhbjpsZWFuMDBA',
+      const { data, error } = await axios.get(
+        'https://lean-processos-api.azurewebsites.net/api/vagas',
+        {
+          headers: {
+            Authorization: 'Basic bGVhbjpsZWFuMDBA',
+          },
         },
-      });
+      );
 
       if (error) setJobsApiError(true);
       else setJobs(data);
@@ -35,6 +39,15 @@ const LeanJobs = () => {
     fetchData();
 
   }, []);
+
+  const toggleHambuguerClass = () => {
+
+    const hamburguerClass = document.querySelector('.hamburguer-wrapper').classList;
+
+    if (hamburguerClass.contains('active')) hamburguerClass.remove('active');
+    else hamburguerClass.add('active');
+
+  };
 
   return (
     <section className="leanJobs">
@@ -48,6 +61,11 @@ const LeanJobs = () => {
                 alt="LeanWork logo"
               />
             </Link>
+            <div className="hamburguer-wrapper" onClick={toggleHambuguerClass} role="button" tabIndex="-1">
+              <div className="hamburguer-box">
+                <div className="hamburguer-inner" />
+              </div>
+            </div>
             <ul>
               <li>
                 <Link to="/">LeanWork</Link>
@@ -89,6 +107,16 @@ const LeanJobs = () => {
           </div>
         )}
       </div>
+      <footer className="footer footer-default footer-sticky">
+        <div className="container">
+          <p className="copyright">
+            &copy; Copyright 2019 Leanwork Tecnologia LTDA. Todos os direitos
+            reservados.
+          </p>
+          <i className="icon icon-rawf" />
+          <span className="sr-only">RAWF Comunicação</span>
+        </div>
+      </footer>
     </section>
   );
 

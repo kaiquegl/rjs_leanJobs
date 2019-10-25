@@ -5,11 +5,81 @@
 
   .leanJobsNavWrapper {
     background: #fff;
+    position: relative;
 
     .leanJobsNavBox {
       padding: 20px 15px;
       display: flex;
       justify-content: space-between;
+
+      .hamburguer-wrapper {
+        display: none;
+        position: absolute;
+        top: 22px;
+        right: 10px;
+
+        @media (max-width: 768px) {
+          display: block;
+        }
+
+        .hamburguer {
+          &-box {
+            width: 40px;
+            height: 24px;
+            position: relative;
+          }
+
+          &-inner, &-inner::before, &-inner:after {
+            position: absolute;
+            width: 40px;
+            height: 4px;
+            transition-timing-function: ease;
+            transition-duration: .15s;
+            transition-property: transform;
+            border-radius: 4px;
+            background-color: #6d6e71;
+          }
+
+          &-inner {
+            top: 2px;
+          }
+
+          &-inner::before, &-inner:after {
+            display: block;
+            content: "";
+          }
+
+          &-inner::before {
+            top: 10px;
+            transition-timing-function: ease;
+            transition-duration: .15s;
+            transition-property: transform,opacity;
+          }
+
+          &-inner:after {
+            top: 20px;
+          }
+        }
+
+        &.active {
+
+          .hamburguer-inner {
+            transform: translate3d(0,10px,0) rotate(45deg);
+
+            &::before {
+              transform: rotate(-45deg) translate3d(-5.71429px,-6px,0);
+              opacity: 0;
+            }
+
+            &::after {
+              transform: translate3d(0,-20px,0) rotate(-90deg);
+            }
+
+          }
+
+        }
+
+      }
 
       ul {
         margin: 0;
